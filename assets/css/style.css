@@ -5,4 +5,17 @@ body {
   -o-background-size: cover;
   background-size: cover;
   color: #fff;
+  padding: 2rem 0;
+}
+
+.container {
+  background-color: rgba(20, 20, 20, .5);
+}
+
+h1 {
+  padding: 30px;
+}
+
+.answer {
+  cursor: pointer;
 }
