@@ -1,14 +1,13 @@
 // $("document").ready(function() {
-  var gameStarted = false;
   var numCorrect = 0;
   var numIncorrect = 0;
   var currentQuestion = {};
   var currentQuestionIndex = -1;
   var chosenAnswer = "";
+  var chosenOption;
   var questions = [];
 
   $("button#start-game").on("click", function startGame() {
-    gameStarted = false;
     numCorrect = 0;
     numIncorrect = 0;
     currentQuestion = {};
@@ -20,102 +19,102 @@
       {
         question: "Which NBA player holds the record for most points scored in a single game?",
         answers: [
-          "a: Michael Jordan",
-          "b: Wilt Chamberlain",
-          "c: Lebron James",
-          "d: Kobe Bryant",
+          "Michael Jordan",
+          "Wilt Chamberlain",
+          "Lebron James",
+          "Kobe Bryant",
         ],
-        correctAnswer: "b: Wilt Chamberlain"
+        correctAnswer: "Wilt Chamberlain"
       },
       {
         question: "John Stockton holds the career assists record in the NBA. How many assists did he have in his career?",
         answers: [
-          "a: 15,806",
-          "b: 17,248",
-          "c: 14,617",
-          "d: 16,091",
+          "15,806",
+          "17,248",
+          "14,617",
+          "16,091",
         ],
-        correctAnswer: "a: 15,806"
+        correctAnswer: "15,806"
       },
       {
         question: "Which NBA team has the most championships?",
         answers: [
-          "a: Los Angeles Lakers",
-          "b: Chicago Bulls",
-          "c: Boston Celtics",
-          "d: Golden State Warriors",
+          "Los Angeles Lakers",
+          "Chicago Bulls",
+          "Boston Celtics",
+          "Golden State Warriors",
         ],
-        correctAnswer: "c: Boston Celtics"
+        correctAnswer: "Boston Celtics"
       },
       {
         question: "Atlanta is the fourth home of the NBA's Hawks. Which of the following is NOT one of their previous locations?",
         answers: [
-          "a: East Moline, Illinois",
-          "b: Milwaukee, Wisconsin",
-          "c: St. Louis, Missouri",
-          "d: Pittsburgh, Pennsylvania",
+          "East Moline, Illinois",
+          "Milwaukee, Wisconsin",
+          "St. Louis, Missouri",
+          "Pittsburgh, Pennsylvania",
         ],
-        correctAnswer: "d: Pittsburgh, Pennsylvania"
+        correctAnswer: "Pittsburgh, Pennsylvania"
       },
       // {
       //   question: "Which NBA player holds the record for most points scored in a single game?",
       //   answers: [
-      //     "a: Michael Jordan",
-      //     "b: Wilt Chamberlain",
-      //     "c: Lebron James",
-      //     "d: Kobe Bryant",
+      //     "Michael Jordan",
+      //     "Wilt Chamberlain",
+      //     "Lebron James",
+      //     "Kobe Bryant",
       //   ],
-      //   correctAnswer: "b: Wilt Chamberlain"
+      //   correctAnswer: "Wilt Chamberlain"
       // },
       // {
       //   question: "Which NBA player holds the record for most points scored in a single game?",
       //   answers: [
-      //     "a: Michael Jordan",
-      //     "b: Wilt Chamberlain",
-      //     "c: Lebron James",
-      //     "d: Kobe Bryant",
+      //     "Michael Jordan",
+      //     "Wilt Chamberlain",
+      //     "Lebron James",
+      //     "Kobe Bryant",
       //   ],
-      //   correctAnswer: "b: Wilt Chamberlain"
+      //   correctAnswer: "Wilt Chamberlain"
       // },
       // {
       //   question: "Which NBA player holds the record for most points scored in a single game?",
       //   answers: [
-      //     "a: Michael Jordan",
-      //     "b: Wilt Chamberlain",
-      //     "c: Lebron James",
-      //     "d: Kobe Bryant",
+      //     "Michael Jordan",
+      //     "Wilt Chamberlain",
+      //     "Lebron James",
+      //     "Kobe Bryant",
       //   ],
-      //   correctAnswer: "b: Wilt Chamberlain"
+      //   correctAnswer: "Wilt Chamberlain"
       // },
       // {
       //   question: "Which NBA player holds the record for most points scored in a single game?",
       //   answers: [
-      //     "a: Michael Jordan",
-      //     "b: Wilt Chamberlain",
-      //     "c: Lebron James",
-      //     "d: Kobe Bryant",
+      //     "Michael Jordan",
+      //     "Wilt Chamberlain",
+      //     "Lebron James",
+      //     "Kobe Bryant",
       //   ],
-      //   correctAnswer: "b: Wilt Chamberlain"
+      //   correctAnswer: "Wilt Chamberlain"
       // },
       // {
       //   question: "Which NBA player holds the record for most points scored in a single game?",
       //   answers: [
-      //     "a: Michael Jordan",
-      //     "b: Wilt Chamberlain",
-      //     "c: Lebron James",
-      //     "d: Kobe Bryant",
+      //     "Michael Jordan",
+      //     "Wilt Chamberlain",
+      //     "Lebron James",
+      //     "Kobe Bryant",
       //   ],
-      //   correctAnswer: "b: Wilt Chamberlain"
+      //   correctAnswer: "Wilt Chamberlain"
       // },
       // {
       //   question: "Which NBA player holds the record for most points scored in a single game?",
       //   answers: [
-      //     "a: Michael Jordan",
-      //     "b: Wilt Chamberlain",
-      //     "c: Lebron James",
-      //     "d: Kobe Bryant",
+      //     "Michael Jordan",
+      //     "Wilt Chamberlain",
+      //     "Lebron James",
+      //     "Kobe Bryant",
       //   ],
-      //   correctAnswer: "b: Wilt Chamberlain"
+      //   correctAnswer: "Wilt Chamberlain"
       // },
     ];
     function displayQuestion() {
@@ -127,39 +126,47 @@
           "You got " + (numCorrect / (numCorrect + numIncorrect)) * 100 + "% correct"
         );
         $("button#start-game").html("Restart Game");
+        currentQuestionIndex = -1;
         $("div#buttonContainer").show();
       } else {
-        currentQuestionIndex = Math.floor(Math.random() * questions.length)
+        currentQuestionIndex = Math.floor(Math.random() * questions.length);
         currentQuestion = questions[currentQuestionIndex];
         questions.splice(currentQuestionIndex, 1);
         $("div#question").html(currentQuestion.question);
         for (var i = 0; i < Object.keys(currentQuestion.answers).length; i++) {
-          $("div#answer" + i).html(currentQuestion.answers[i]);
-          console.log(currentQuestion.answers[i]);
+          if (currentQuestion.answers[i] === currentQuestion.correctAnswer) {
+            $("div#answer" + i).html("<button class='btn btn-secondary' data-value='correct'>" + currentQuestion.answers[i] + "</button>");
+          } else {
+            $("div#answer" + i).html("<button class='btn btn-secondary'>" + currentQuestion.answers[i] + "</button>");
+          }
         };
         setTimer();
       }
     }
 
+    displayQuestion();
+
     var timer;
 
     function setTimer() {
-      var timeLeft = 10
+      var timeLeft = 1000
       $("#questionTimer").html(timeLeft);
       timer = setInterval(function x() { 
-        $('#questionTimer').html(timeLeft--);
+        $('#questionTimer').html("You have " + timeLeft-- + " seconds remaining");
         if (timeLeft == -1) {
           clearInterval(timer);    
           $("div#questionTimer").empty();
           numIncorrect++;
-          alert("time's up"); 
-          displayQuestion();   
+          $("div#question").text("Sorry, you ran out of time, the correct answer was:");
+          $("[data-value='correct']").addClass("btn-success"); 
+          var displayNextQuestion = setTimeout(displayQuestion, 3000);   
         } 
         return x;
       }(), 1000);
     };
 
-    $("div.answer").on("click", function() {
+    $("div.answer").off("click").on("click", "button", function() {
+      chosenButton = $(this);
       chosenAnswer = $(this).text();
       clearInterval(timer);
       $("div#questionTimer").empty();
@@ -170,24 +177,23 @@
       if (chosenAnswer === currentQuestion.correctAnswer) {
         numCorrect++;
         $("div#question").empty();
-        $("div.answer").empty();
-        alert("right");
-        displayQuestion();
+        $("div#question").text("That's Correct!");
+        chosenButton.addClass("btn-success");
+        var displayNextQuestion = setTimeout(displayQuestion, 3000);
       } else {
         numIncorrect++;
         $("div#question").empty();
-        $("div.answer").empty();
-        alert("wrong");
-        displayQuestion();
+        $("div#question").text("Sorry, you got it wrong, the correct answer was:");
+        chosenButton.addClass("btn-danger");
+        $("[data-value='correct']").addClass("btn-success");
+        var displayNextQuestion = setTimeout(displayQuestion, 3000);
       }
     };
 
-    displayQuestion();
+
+    // displayQuestion();
+      
   });
 
-  // startGame();
-  
-
-  // displayQuestion();
 
 // });

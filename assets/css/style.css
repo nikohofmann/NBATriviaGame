@@ -5,17 +5,37 @@ body {
   -o-background-size: cover;
   background-size: cover;
   color: #fff;
+  font-size: 2rem;
   padding: 2rem 0;
 }
 
 .container {
   background-color: rgba(20, 20, 20, .5);
+  max-width: 960px;
+  padding-bottom: 30px;
 }
 
 h1 {
   padding: 30px;
+  font-size: 3.5rem;
+}
+
+#question {
+  text-align: center;
+  padding: 25px 5%;
 }
 
 .answer {
   cursor: pointer;
+  margin-bottom: .5rem;
+}
+
+#start-game {
+  font-size: 2rem;
+  padding: .75rem 3rem;
+}
+
+.answer button {
+  font-size: 2rem;
+  width: 70%;
 }
