@@ -149,7 +149,7 @@
     var timer;
 
     function setTimer() {
-      var timeLeft = 1000
+      var timeLeft = 10
       $("#questionTimer").html(timeLeft);
       timer = setInterval(function x() { 
         $('#questionTimer').html("You have " + timeLeft-- + " seconds remaining");
