@@ -56,66 +56,66 @@
         ],
         correctAnswer: "Pittsburgh, Pennsylvania"
       },
-      // {
-      //   question: "Which NBA player holds the record for most points scored in a single game?",
-      //   answers: [
-      //     "Michael Jordan",
-      //     "Wilt Chamberlain",
-      //     "Lebron James",
-      //     "Kobe Bryant",
-      //   ],
-      //   correctAnswer: "Wilt Chamberlain"
-      // },
-      // {
-      //   question: "Which NBA player holds the record for most points scored in a single game?",
-      //   answers: [
-      //     "Michael Jordan",
-      //     "Wilt Chamberlain",
-      //     "Lebron James",
-      //     "Kobe Bryant",
-      //   ],
-      //   correctAnswer: "Wilt Chamberlain"
-      // },
-      // {
-      //   question: "Which NBA player holds the record for most points scored in a single game?",
-      //   answers: [
-      //     "Michael Jordan",
-      //     "Wilt Chamberlain",
-      //     "Lebron James",
-      //     "Kobe Bryant",
-      //   ],
-      //   correctAnswer: "Wilt Chamberlain"
-      // },
-      // {
-      //   question: "Which NBA player holds the record for most points scored in a single game?",
-      //   answers: [
-      //     "Michael Jordan",
-      //     "Wilt Chamberlain",
-      //     "Lebron James",
-      //     "Kobe Bryant",
-      //   ],
-      //   correctAnswer: "Wilt Chamberlain"
-      // },
-      // {
-      //   question: "Which NBA player holds the record for most points scored in a single game?",
-      //   answers: [
-      //     "Michael Jordan",
-      //     "Wilt Chamberlain",
-      //     "Lebron James",
-      //     "Kobe Bryant",
-      //   ],
-      //   correctAnswer: "Wilt Chamberlain"
-      // },
-      // {
-      //   question: "Which NBA player holds the record for most points scored in a single game?",
-      //   answers: [
-      //     "Michael Jordan",
-      //     "Wilt Chamberlain",
-      //     "Lebron James",
-      //     "Kobe Bryant",
-      //   ],
-      //   correctAnswer: "Wilt Chamberlain"
-      // },
+      {
+        question: "Which one of these is not a number 1 overall draft pick?",
+        answers: [
+          "Chris Webber",
+          "Allen Iverson",
+          "Kenyon Martin",
+          "Dikembe Mutombo",
+        ],
+        correctAnswer: "Dikembe Mutombo"
+      },
+      {
+        question: "Which NBA player holds the record for the most triple-doubles in a single season?",
+        answers: [
+          "Oscar Robertson",
+          "James Harden",
+          "Russell Westbrook",
+          "Wilt Chamberlain",
+        ],
+        correctAnswer: "Russell Westbrook"
+      },
+      {
+        question: "Which NBA player holds the record for the most technical fouls in a season?",
+        answers: [
+          "DeMarcus Cousins",
+          "Ron Artest (Metta World Peace)",
+          "Rasheed Wallace",
+          "Draymond Green",
+        ],
+        correctAnswer: "Rasheed Wallace"
+      },
+      {
+        question: "Who was the first player to win 3 MVP awards in a row?",
+        answers: [
+          "Wilt Chamberlain",
+          "Kareem Abdul-Jabbar",
+          "Larry Bird",
+          "Bill Russell",
+        ],
+        correctAnswer: "Bill Russell"
+      },
+      {
+        question: "Who is the only coach to win both a NCAA and NBA championship?",
+        answers: [
+          "Rick Pitino",
+          "Larry Brown",
+          "Chuck Daly",
+          "John Calipari",
+        ],
+        correctAnswer: "Larry Brown"
+      },
+      {
+        question: "Michael Jordan was drafted third overall in 1984. Which two players were selected ahead of him?",
+        answers: [
+          "Hakeem Olajuwon & Sam Bowie",
+          "Patrick Ewing & Hakeem Olajuwon",
+          "Charles Barkley & Hakeem Olajuwon",
+          "John Stockton & Sam Bowie",
+        ],
+        correctAnswer: "Hakeem Olajuwon & Sam Bowie"
+      },
     ];
     function displayQuestion() {
       if (questions.length == 0) {
