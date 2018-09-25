@@ -6,6 +6,7 @@
   var chosenAnswer = "";
   var chosenOption;
   var questions = [];
+  var roundStarted = false;
 
   $("button#start-game").on("click", function startGame() {
     numCorrect = 0;
@@ -13,6 +14,7 @@
     currentQuestion = {};
     currentQuestionIndex = -1;
     chosenAnswer = "";
+    roundStarted = false;
     $("div#buttonContainer").hide();
     $("div#question").empty();
     questions = [
@@ -129,6 +131,7 @@
         currentQuestionIndex = -1;
         $("div#buttonContainer").show();
       } else {
+        roundStarted = true;
         currentQuestionIndex = Math.floor(Math.random() * questions.length);
         currentQuestion = questions[currentQuestionIndex];
         questions.splice(currentQuestionIndex, 1);
@@ -166,14 +169,17 @@
     };
 
     $("div.answer").off("click").on("click", "button", function() {
-      chosenButton = $(this);
-      chosenAnswer = $(this).text();
-      clearInterval(timer);
-      $("div#questionTimer").empty();
-      checkAnswer();
+      if (roundStarted === true) {
+        chosenButton = $(this);
+        chosenAnswer = $(this).text();
+        clearInterval(timer);
+        $("div#questionTimer").empty();
+        checkAnswer();
+      }
     });
   
     function checkAnswer() {
+      roundStarted = false;
       if (chosenAnswer === currentQuestion.correctAnswer) {
         numCorrect++;
         $("div#question").empty();
