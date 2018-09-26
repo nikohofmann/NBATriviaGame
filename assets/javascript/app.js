@@ -1,4 +1,4 @@
-// $("document").ready(function() {
+$("document").ready(function() {
   var numCorrect = 0;
   var numIncorrect = 0;
   var currentQuestion = {};
@@ -195,11 +195,5 @@
         var displayNextQuestion = setTimeout(displayQuestion, 3000);
       }
     };
-
-
-    // displayQuestion();
-      
   });
-
-
-// });
+});
